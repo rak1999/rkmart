@@ -4,13 +4,18 @@ const Detail = (props) => {
   return (
     <div id='detail' style={{height:"600px"}}>
         <div className="card" style={{width:"350px" , backgroundColor:"black"}}>
+  
             <img 
               src={props.image} 
               className="card-img-top" 
               alt="Product" 
               style={{width:"348px" , height:"300px"}}
+              onClick={()=>{
+                props.setDetail(true);
+              }}
             />
             <div className="card-body">
+            <h4 className="card-title text-white">{props.id}</h4>
                 <h5 className="card-title text-white">{props.name}</h5>
                 <div id='card-content'>
                   <div className="card-text">{props.description}</div>
