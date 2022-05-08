@@ -1,30 +1,30 @@
-import React from 'react'
+import React from "react";
 
 const Detail = (props) => {
   return (
-    <div id='detail' style={{height:"600px"}}>
-        <div className="card" style={{width:"350px" , backgroundColor:"black"}}>
-  
-            <img 
-              src={props.image} 
-              className="card-img-top" 
-              alt="Product" 
-              style={{width:"348px" , height:"300px"}}
-              onClick={()=>{
-                props.setDetail(true);
-              }}
-            />
-            <div className="card-body">
-            <h4 className="card-title text-white">{props.id}</h4>
-                <h5 className="card-title text-white">{props.name}</h5>
-                <div id='card-content'>
-                  <div className="card-text">{props.description}</div>
-                  <p className="card-text">{`₹ ${props.price}`}</p>
-                </div>
-            </div>
+    <div id="detail" style={{ display: "flex" }}>
+      <div id="img">
+        <img
+          src={props.image}
+          className="card-img-top"
+          alt="Product"
+          style={{ width: "600px", height: "400px" }}
+          onClick={() => {
+            props.setDetail(true);
+          }}
+        />
+      </div>
+      <div className="detail-card-body">
+        <h1 className="card-title text-black "><strong>Title : </strong>{props.name}</h1>
+        <div id="card-content">
+          <div className="detail-card-text">
+           <strong> Description : </strong>{props.description.substr(0, 200) + "..."}
+          </div>
+          <p className="card-text"><strong>Price : </strong>{`₹ ${props.price}`}</p>
         </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default Detail;
