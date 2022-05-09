@@ -2,13 +2,13 @@ import React from "react";
 
 const Detail = (props) => {
   return (
-    <div id="detail" style={{ display: "flex" }}>
+    <div id="detail">
       <div id="img">
         <img
+          id="Image"
           src={props.image}
           className="card-img-top"
           alt="Product"
-          style={{ width: "600px", height: "400px" }}
           onClick={() => {
             props.setDetail(true);
           }}
@@ -20,7 +20,7 @@ const Detail = (props) => {
           <div className="detail-card-text">
            <strong> Description : </strong>{props.description.substr(0, 200) + "..."}
           </div>
-          <p className="card-text"><strong>Price : </strong>{`₹ ${props.price}`}</p>
+          <p className="card-text"><strong>Price : </strong>{`$ ${props.price}`}</p>
         </div>
       </div>
     </div>

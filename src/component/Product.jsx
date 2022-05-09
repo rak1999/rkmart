@@ -22,10 +22,10 @@ const Product = (props) => {
         />
         <div className="product-card-body">
           <h5 className="card-title text-white">
-            {name.substr(0, 20) + "..."}
+            {name.substr(0,20)+"..."}
           </h5>
           <div id="product-card-content">
-            <p className="card-text">{`₹ ${price}`}</p>
+            <p className="card-text">{`$ ${price}`}</p>
             <p onClick={() => props.setAddItem(props.addItem + 1)}>
               <IoAddCircleOutline size="40px" />
             </p>

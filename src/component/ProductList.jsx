@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState} from "react";
+import Loading from "./Loading";
 import Detail from "./Detail";
 import Product from "./Product";
 
@@ -6,20 +7,22 @@ const ProductList = (props) => {
   const [data, setData] = useState([]);
   const [detail, setDetail] = useState(true);
   const [productId, setProductId] = useState(null);
-  const [page, setPage] = useState(1);
+  const [ loading , setLoading] = useState(true);
 
   useEffect(() => {
     const getData = async () => {
       const res = await fetch(`https://fakestoreapi.com/products`);
       const resData = await res.json();
       setData(resData);
+      setLoading(false);
     };
     getData();
-  }, [data, page]);
+  }, [data]);
 
   return (
     <div id="productlist">
-      {detail
+      { loading ? <Loading /> :
+      detail
         ? data.map((item) => (
             <Product
               id={item.id}
