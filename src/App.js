@@ -4,6 +4,7 @@ import Footer from './component/Footer'
 import Header from './component/Header'
 import ProductList from './component/ProductList';
 import "./App.css";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 
 const App = () => {

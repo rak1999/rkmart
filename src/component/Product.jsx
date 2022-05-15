@@ -1,38 +1,41 @@
 import React from "react";
 import { IoAddCircleOutline } from "react-icons/io5";
 
-const Product = (props) => {
-  const { image, price, name } = props;
+const Product = ({data,addItem,setAddItem,setDetail,setProductId}) => {
 
   return (
-    <div id="product">
+    <>
+    {data.map(item=>(
+      <div id="product">
       <div
         className="card"
         style={{ width: "350px", backgroundColor: "black" }}
       >
         <img
-          src={image}
+          src={item.image}
           className="card-img-top"
           alt="Product"
           style={{ width: "348px", height: "300px" }}
           onClick={() => {
-            props.setDetail(false);
-            props.setProductId(props.id);
+            setDetail(false);
+            setProductId(item.id);
           }}
         />
         <div className="product-card-body">
           <h5 className="card-title text-white">
-            {name.substr(0,20)+"..."}
+            {item.title.substr(0,20)+"..."}
           </h5>
           <div id="product-card-content">
-            <p className="card-text">{`$ ${price}`}</p>
-            <p onClick={() => props.setAddItem(props.addItem + 1)}>
+            <p className="card-text">{`$ ${item.price}`}</p>
+            <p onClick={() => setAddItem(addItem + 1)}>
               <IoAddCircleOutline size="40px" />
             </p>
           </div>
         </div>
       </div>
     </div>
+    ))}
+    </>
   );
 };
 
